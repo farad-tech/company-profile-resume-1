@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\BlogResource\Pages;
 use App\Models\Blog;
+use App\Models\BlogCategory;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
@@ -27,6 +28,13 @@ class BlogResource extends Resource
 
   public static function form(Form $form): Form
   {
+    $categories_model = BlogCategory::select('id', 'title')->get()->toArray();
+    $categories = [];
+
+    foreach ($categories_model as $category) {
+      $categories[$category['id']] = $category['title']['en'];
+    }
+
     return $form
       ->schema([
         Fieldset::make('details')
@@ -42,11 +50,7 @@ class BlogResource extends Resource
               ->required(),
 
             Select::make('category')
-              ->options([
-                '1' => '1',
-                '2' => '2',
-                '3' => '3',
-              ])
+              ->options($categories)
               ->required(),
             TagsInput::make('keywords')
               ->required(),

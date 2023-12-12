@@ -4,28 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 
-class Blog extends Model
+class BlogCategory extends Model
 {
     use HasFactory, HasTranslations;
 
-    public $translatable = [
+    protected $translatable = [
         'title',
-        'content',
-        'keywords',
-    ];
-    
-    protected $casts = [
-        'keywords' => 'array',
+        'slug',
     ];
 
     protected $fillable = [
         'title',
-        'image',
-        'content',
-        'category',
-        'keywords',
-        'author',
+        'slug',
     ];
+
+    public function blogs(): HasMany
+    {
+        return $this->hasMany(Blog::class);
+    }
 }
