@@ -6,15 +6,16 @@ use App\Filament\Resources\BlogResource;
 use App\Models\Blog;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
-use Illuminate\Database\Eloquent\Model;
 
 class EditBlog extends EditRecord
 {
+    use EditRecord\Concerns\Translatable;
     protected static string $resource = BlogResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
+            Actions\LocaleSwitcher::make(),
             Actions\DeleteAction::make(),
         ];
     }
