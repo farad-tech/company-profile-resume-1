@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('content');
             $table->text('category');
             $table->text('keywords');
-            $table->text('author')->default(strval(Auth::id()));
+            $table->text('author');
             $table->timestamps();
         });
     }

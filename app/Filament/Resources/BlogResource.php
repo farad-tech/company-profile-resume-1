@@ -54,8 +54,16 @@ class BlogResource extends Resource
             Select::make('category')
               ->options($categories)
               ->required(),
+
             TagsInput::make('keywords')
               ->required(),
+
+            TextInput::make('author')
+              ->disabled(true)
+              ->default(Auth::id())
+              ->required()
+              ->helperText('Your Id!'),
+
           ])->columnSpan([
             'sm' => 12,
           ]),
