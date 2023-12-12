@@ -9,6 +9,10 @@ class Blog extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'keywords' => 'array',
+    ];
+
     protected $fillable = [
         'title',
         'image',
