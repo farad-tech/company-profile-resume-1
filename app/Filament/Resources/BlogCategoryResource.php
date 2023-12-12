@@ -23,7 +23,9 @@ class BlogCategoryResource extends Resource
     use Translatable;
     protected static ?string $model = BlogCategory::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    // protected static ?string $navigationIcon = 'heroicon-o-rectangle-group';
+
+    protected static ?string $navigationGroup = 'Blog';
 
     public static function form(Form $form): Form
     {

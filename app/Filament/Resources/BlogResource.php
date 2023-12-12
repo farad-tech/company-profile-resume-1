@@ -24,7 +24,9 @@ class BlogResource extends Resource
   use Translatable;
   protected static ?string $model = Blog::class;
 
-  protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+  // protected static ?string $navigationIcon = 'heroicon-o-document-text';
+
+  protected static ?string $navigationGroup = 'Blog';
 
   public static function form(Form $form): Form
   {
