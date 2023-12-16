@@ -42,6 +42,8 @@ class BlogResource extends Resource
         Fieldset::make('details')
           ->schema([
             TextInput::make('title')
+              ->hint('Translatable')
+              ->hintColor('info')
               ->required(),
 
             FileUpload::make('image')
@@ -56,6 +58,8 @@ class BlogResource extends Resource
               ->required(),
 
             TagsInput::make('keywords')
+              ->hint('Translatable')
+              ->hintColor('info')
               ->required(),
 
             TextInput::make('author')
@@ -68,6 +72,8 @@ class BlogResource extends Resource
             'sm' => 12,
           ]),
         RichEditor::make('content')
+          ->hint('Translatable')
+          ->hintColor('info')
           ->required()
           ->columnSpan([
             'sm' => 12,

@@ -34,12 +34,16 @@ class BlogCategoryResource extends Resource
         Fieldset::make('details')
           ->schema([
             TextInput::make('title')
+              ->hint('Translatable')
+              ->hintColor('info')
               ->required(),
             TextInput::make('slug')
+              ->hint('Translatable')
+              ->hintColor('info')
               ->required()
               ->helperText(function (string $operation) {
                 if ($operation === 'edit') {
-                  return new HtmlString('<p>Preferably do not change this value!</p>');
+                  return new HtmlString('<p class="danger">Preferably do not change this value!</p>');
                 }
               })
           ]),

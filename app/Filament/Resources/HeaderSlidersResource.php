@@ -31,10 +31,14 @@ class HeaderSlidersResource extends Resource
                     ->required(),
 
                 TextInput::make('title')
+                    ->hint('Translatable')
+                    ->hintColor('info')
                     ->label('Slider text')
                     ->required(),
 
                 TextInput::make('CallToActionTitle')
+                    ->hint('Translatable')
+                    ->hintColor('info')
                     ->label('Slider call to action title')
                     ->required(),
 

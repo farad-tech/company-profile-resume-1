@@ -30,15 +30,24 @@ class HeaderInfoResource extends Resource
                 Fieldset::make('details')
                     ->schema([
                         TextInput::make("title")
+                        ->hint('Translatable')
+                        ->hintColor('info')
                         ->required(),
+
                         TextInput::make('value')
+                        ->hint('Translatable')
+                        ->hintColor('info')
                         ->required(),
+
                         FileUpload::make('icon')
                         ->image()
                         ->downloadable()
                         ->imageEditor()
                         ->directory('icons')
                         ->required(),
+                        
+                        TextInput::make('url')
+                        ->activeUrl()
                     ]),
             ]);
     }
@@ -49,6 +58,7 @@ class HeaderInfoResource extends Resource
             ->columns([
                 TextColumn::make('title'),
                 TextColumn::make('value'),
+                TextColumn::make('url'),
             ])
             ->filters([
                 //
