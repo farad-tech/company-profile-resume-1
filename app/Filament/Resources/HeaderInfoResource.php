@@ -27,8 +27,10 @@ class HeaderInfoResource extends Resource
             ->schema([
                 Fieldset::make('details')
                     ->schema([
-                        TextInput::make("title"),
-                        TextInput::make('value'),
+                        TextInput::make("title")
+                        ->required(),
+                        TextInput::make('value')
+                        ->required(),
                         FileUpload::make('icon')
                         ->image()
                         ->downloadable()
