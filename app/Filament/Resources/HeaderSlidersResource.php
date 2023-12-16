@@ -18,7 +18,9 @@ class HeaderSlidersResource extends Resource
     use Translatable;
     protected static ?string $model = HeaderSliders::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-photo';
+    // protected static ?string $navigationIcon = 'heroicon-o-photo';
+
+    protected static ?string $navigationGroup = 'Header';
 
     public static function form(Form $form): Form
     {
@@ -37,7 +39,7 @@ class HeaderSlidersResource extends Resource
                     ->required(),
 
                 TextInput::make('CallToActionURL')
-                    ->label('Slider call to action URL')
+                    ->label('Slider call to action url')
                     ->activeUrl()
                     ->required(),
 
@@ -61,7 +63,7 @@ class HeaderSlidersResource extends Resource
             ->columns([
                 TextColumn::make('title'),
                 TextColumn::make('CallToActionTitle'),
-                TextColumn::make('CallToActionURL'),
+                TextColumn::make('CallToActionURL')->label('Call to action url'),
                 TextColumn::make('imageAlt'),
             ])
             ->filters([

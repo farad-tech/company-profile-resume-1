@@ -19,7 +19,9 @@ class HeaderInfoResource extends Resource
     use Translatable;
     protected static ?string $model = HeaderInfo::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-information-circle';
+    // protected static ?string $navigationIcon = 'heroicon-o-information-circle';
+
+    protected static ?string $navigationGroup = 'Header';
 
     public static function form(Form $form): Form
     {
