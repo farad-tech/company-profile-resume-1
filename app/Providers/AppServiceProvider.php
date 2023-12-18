@@ -31,9 +31,12 @@ class AppServiceProvider extends ServiceProvider
                 NavigationGroup::make()
                     ->label('Header')
                     ->icon('heroicon-o-rectangle-group'),
+                NavigationGroup::make()
+                    ->label('About us')
+                    ->icon('heroicon-o-information-circle'),
             ]);
         });
-        
+
         FilamentColor::register([
             'danger' => Color::Red,
             'gray' => Color::Zinc,
