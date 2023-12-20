@@ -34,6 +34,9 @@ class AppServiceProvider extends ServiceProvider
                 NavigationGroup::make()
                     ->label('About us')
                     ->icon('heroicon-o-information-circle'),
+                NavigationGroup::make()
+                    ->label('Projects')
+                    ->icon('heroicon-o-briefcase'),
             ]);
         });
 
