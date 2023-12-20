@@ -34,7 +34,9 @@ class ProjectCategoryResource extends Resource
                     ->schema([
                         TextInput::make('title')
                             ->label('title')
-                            ->required(),
+                            ->required()
+                            ->hint("Translatable!")
+                            ->hintColor("info"),
 
                         FileUpload::make('image')
                             ->label('Image')
@@ -47,7 +49,9 @@ class ProjectCategoryResource extends Resource
                         Textarea::make('alt')
                             ->label('Image alternative text')
                             ->rows('2')
-                            ->required(),
+                            ->required()
+                            ->hint("Translatable!")
+                            ->hintColor("info"),
                     ])
             ]);
     }

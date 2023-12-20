@@ -5,9 +5,11 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ProjectResource\Pages;
 use App\Filament\Resources\ProjectResource\RelationManagers;
 use App\Models\Project;
+use App\Models\ProjectCategory;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Concerns\Translatable;
@@ -27,18 +29,32 @@ class ProjectResource extends Resource
 
 
     public static function form(Form $form): Form
-    {
+    {   
+        $categories_model = ProjectCategory::select('id', 'title')->get()->toArray();
+        $categories = [];
+    
+        foreach ($categories_model as $category) {
+          $categories[$category['id']] = $category['title']['en'];
+        }
         return $form
             ->schema([
                 Section::make()
                     ->schema([
                         TextInput::make('title')
                             ->label('Title')
-                            ->required(),
+                            ->required()
+                            ->hint("Translatable!")
+                            ->hintColor("info"),
 
                         TextInput::make('address')
                             ->label('Address')
-                            ->required(),
+                            ->required()
+                            ->hint("Translatable!")
+                            ->hintColor("info"),
+
+                        Select::make('category')
+                            ->options($categories)
+                            ->label('category'),
 
                         FileUpload::make('images')
                             ->label('Images')

@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\TeamResource\Pages;
 use App\Models\Team;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Concerns\Translatable;
@@ -25,32 +26,37 @@ class TeamResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')
-                    ->required(),
-
-                TextInput::make('position')
-                    ->hint('Translatable!')
-                    ->hintColor('info')
-                    ->required(),
-
-                FileUpload::make('image')
-                    ->label('Image')
-                    ->image()
-                    ->downloadable()
-                    ->imageEditor()
-                    ->directory('teams')
-                    ->required(),
-
-                TextInput::make('alt')
-                    ->hint('Translatable!')
-                    ->hintColor('info')
-                    ->required(),
-
-                TextInput::make('twitter'),
-                TextInput::make('facebook'),
-                TextInput::make('linkedin'),
-                TextInput::make('instagram'),
-                TextInput::make('youtube'),
+                Section::make()
+                ->schema([
+                    TextInput::make('name')
+                        ->required()
+                        ->hint("Translatable!")
+                        ->hintColor("info"),
+    
+                    TextInput::make('position')
+                        ->hint('Translatable!')
+                        ->hintColor('info')
+                        ->required(),
+    
+                    FileUpload::make('image')
+                        ->label('Image')
+                        ->image()
+                        ->downloadable()
+                        ->imageEditor()
+                        ->directory('teams')
+                        ->required(),
+    
+                    TextInput::make('alt')
+                        ->hint('Translatable!')
+                        ->hintColor('info')
+                        ->required(),
+    
+                    TextInput::make('twitter'),
+                    TextInput::make('facebook'),
+                    TextInput::make('linkedin'),
+                    TextInput::make('instagram'),
+                    TextInput::make('youtube'),
+                ])
             ]);
     }
 

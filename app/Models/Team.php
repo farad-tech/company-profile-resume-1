@@ -11,6 +11,7 @@ class Team extends Model
     use HasFactory, HasTranslations;
 
     public $translatable = [
+        'name',
         'position',
         'alt',
     ];

@@ -74,18 +74,39 @@ class CustomResource extends Resource
                 }
               )
               ->hintColor('danger')
+              ->disabled(function (string $operation) {
+                return ($operation == 'edit')? true : false;
+              })
           ]),
 
         // about contenct
         Section::make('about')
           ->statePath('content')
           ->schema([
-            Textarea::make('title')->rows(2),
-            Textarea::make('sub-title')->rows(2),
-            Textarea::make('text-1')->rows(3),
-            TagsInput::make('options'),
-            Textarea::make('text-2')->rows(3),
-            FileUpload::make('image'),
+            Textarea::make('title')->rows(2)
+              ->hint("Translatable!")
+              ->hintColor("info"),
+
+            Textarea::make('sub-title')->rows(2)
+            ->hint("Translatable!")
+            ->hintColor("info"),
+
+            Textarea::make('text-1')->rows(3)
+            ->hint("Translatable!")
+            ->hintColor("info"),
+
+            TagsInput::make('options')
+            ->hint("Translatable!")
+            ->hintColor("info"),
+
+            Textarea::make('text-2')->rows(3)
+            ->hint("Translatable!")
+            ->hintColor("info"),
+
+            FileUpload::make('image')
+            ->hint("Translatable!")
+            ->hintColor("info"),
+
           ])
           ->hidden(
             fn (Get $get): bool => $get('title') !== 'about'
@@ -95,13 +116,19 @@ class CustomResource extends Resource
           ->statePath('content')
           ->schema([
             TextInput::make('title')
-              ->label('Title'),
-
+              ->label('Title')
+              ->hint("Translatable!")
+              ->hintColor("info"),
+  
             Textarea::make('text')
-              ->label('Text'),
+              ->label('Text')
+              ->hint("Translatable!")
+              ->hintColor("info"),
 
             TextInput::make('button-text')
-              ->label('Button text'),
+              ->label('Button text')
+              ->hint("Translatable!")
+              ->hintColor("info"),
           ])
           ->hidden(
             fn (Get $get): bool => $get('title') !== 'contact'

@@ -43,11 +43,16 @@ class ServiceResource extends Resource
 
                         TextInput::make('title')
                             ->label('title')
-                            ->required(),
-
+                            ->required()
+                            ->hint("Translatable!")
+                            ->hintColor("info"),
+                
                         Textarea::make('text')
                             ->label('Text')
-                            ->required(),
+                            ->required()
+                            ->hint("Translatable!")
+                            ->hintColor("info"),
+                
                     ]),
             ]);
     }
