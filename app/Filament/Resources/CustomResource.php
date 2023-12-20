@@ -28,6 +28,11 @@ class CustomResource extends Resource
 
   protected static ?string $navigationIcon = 'heroicon-o-squares-2x2';
 
+  protected static $options = [
+    'about' => 'About us content',
+    'contact' => 'Contact us content',
+  ];
+
   public static function form(Form $form): Form
   {
 
@@ -39,27 +44,38 @@ class CustomResource extends Resource
               ->options(function (string $operation) {
                 $custom = new Custom;
 
-                $options = [
-                  'about' => 'About us content',
-                  'text' => 'text',
-                ];
-
-                if ($operation === 'create') {
-                  foreach ($options as $optionkey => $optionValue) {
+                if ($operation == 'create') {
+                  foreach (self::$options as $optionkey => $optionValue) {
                     if ($custom->where('title', $optionkey)->first() !== null) {
-                      unset($options[$optionkey]);
+                      unset(self::$options[$optionkey]);
                     }
                   }
                 }
 
-                return $options;
-
+                return self::$options;
               })
               ->live()
               ->afterStateUpdated(
                 fn ($state, callable $set) => $state ? $set('about', null) : $set('about', 'hidden')
               )
+              ->hint(
+                function (string $operation) {
+                  $custom = new Custom;
+
+                  if ($operation == 'create') {
+                    foreach (self::$options as $optionkey => $optionValue) {
+                      if ($custom->where('title', $optionkey)->first() !== null) {
+                        unset(self::$options[$optionkey]);
+                      }
+                    }
+                  }
+
+                  return (count(self::$options) <= 0) ? 'You created all type of custom contents.' : '';
+                }
+              )
+              ->hintColor('danger')
           ]),
+
         // about contenct
         Section::make('about')
           ->statePath('content')
@@ -73,6 +89,22 @@ class CustomResource extends Resource
           ])
           ->hidden(
             fn (Get $get): bool => $get('title') !== 'about'
+          ),
+
+        Section::make('contact')
+          ->statePath('content')
+          ->schema([
+            TextInput::make('title')
+              ->label('Title'),
+
+            Textarea::make('text')
+              ->label('Text'),
+
+            TextInput::make('button-text')
+              ->label('Button text'),
+          ])
+          ->hidden(
+            fn (Get $get): bool => $get('title') !== 'contact'
           ),
       ]);
   }

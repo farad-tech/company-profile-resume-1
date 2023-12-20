@@ -15,7 +15,6 @@ class custom extends Model
     ];
 
     public $translatable = [
-        'title',
         'content'
     ];
 
