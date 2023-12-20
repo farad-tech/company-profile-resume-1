@@ -2,13 +2,12 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ProjectCategoryResource\Pages;
-use App\Filament\Resources\ProjectCategoryResource\RelationManagers;
-use App\Models\ProjectCategory;
+use App\Filament\Resources\ProjectResource\Pages;
+use App\Filament\Resources\ProjectResource\RelationManagers;
+use App\Models\Project;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Concerns\Translatable;
@@ -19,12 +18,13 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ProjectCategoryResource extends Resource
+class ProjectResource extends Resource
 {
     use Translatable;
-    protected static ?string $model = ProjectCategory::class;
+    protected static ?string $model = Project::class;
 
     protected static ?string $navigationGroup = 'Projects';
+
 
     public static function form(Form $form): Form
     {
@@ -33,20 +33,20 @@ class ProjectCategoryResource extends Resource
                 Section::make()
                     ->schema([
                         TextInput::make('title')
-                            ->label('title')
+                            ->label('Title')
                             ->required(),
 
-                        FileUpload::make('image')
-                            ->label('Image')
+                        TextInput::make('address')
+                            ->label('Address')
+                            ->required(),
+
+                        FileUpload::make('images')
+                            ->label('Images')
                             ->image()
                             ->downloadable()
                             ->imageEditor()
-                            ->directory('project-categories')
-                            ->required(),
-
-                        Textarea::make('alt')
-                            ->label('Image alternative text')
-                            ->rows('2')
+                            ->directory('projects')
+                            ->multiple()
                             ->required(),
                     ])
             ]);
@@ -57,6 +57,7 @@ class ProjectCategoryResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('title'),
+                TextColumn::make('address'),
             ])
             ->filters([
                 //
@@ -84,9 +85,9 @@ class ProjectCategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListProjectCategories::route('/'),
-            'create' => Pages\CreateProjectCategory::route('/create'),
-            'edit' => Pages\EditProjectCategory::route('/{record}/edit'),
+            'index' => Pages\ListProjects::route('/'),
+            'create' => Pages\CreateProject::route('/create'),
+            'edit' => Pages\EditProject::route('/{record}/edit'),
         ];
     }
 }
