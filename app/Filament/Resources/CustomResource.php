@@ -38,6 +38,7 @@ class CustomResource extends Resource
     'footer-contact' => 'Footer contact ways',
     'quick-link-title' => 'Quick link title',
     'popular-link-title' => 'Popular link title',
+    'copy-right' => 'Copy right text',
   ];
 
   public static function form(Form $form): Form
@@ -47,7 +48,7 @@ class CustomResource extends Resource
       ->schema([
         Section::make('Select content type')
           ->schema([
-            Select::make('title')
+            Select::make('title')->label('Purpose section')
               ->options(function (string $operation) {
                 $custom = new Custom;
 
@@ -221,6 +222,8 @@ class CustomResource extends Resource
           ->statePath('content')
           ->schema([
             TextInput::make('button-title')->label("Button Title")
+            ->hint('Translatable!')
+            ->hintColor('info'),
           ])
           ->hidden(
             fn (Get $get): bool => $get('title') !== 'newsletter-button'
@@ -230,6 +233,8 @@ class CustomResource extends Resource
           ->statePath('content')
           ->schema([
             TextInput::make('input-placeholder')->label("Input placeholder")
+            ->hint('Translatable!')
+            ->hintColor('info'),
           ])
           ->hidden(
             fn (Get $get): bool => $get('title') !== 'newsletter-placeholder'
@@ -239,6 +244,8 @@ class CustomResource extends Resource
           ->statePath('content')
           ->schema([
             TextInput::make('quick-link-title')->label("Quick link title")
+            ->hint('Translatable!')
+            ->hintColor('info'),
           ])
           ->hidden(
             fn (Get $get): bool => $get('title') !== 'quick-link-title'
@@ -248,9 +255,22 @@ class CustomResource extends Resource
           ->statePath('content')
           ->schema([
             TextInput::make('popular-link-title')->label("Popular link title")
+            ->hint('Translatable!')
+            ->hintColor('info'),
           ])
           ->hidden(
             fn (Get $get): bool => $get('title') !== 'popular-link-title'
+          ),
+
+        Section::make('copy-right')->heading('Copy right text')
+          ->statePath('content')
+          ->schema([
+            TextInput::make('copy-right')->label("Copy right text")
+            ->hint('Translatable!')
+            ->hintColor('info'),
+          ])
+          ->hidden(
+            fn (Get $get): bool => $get('title') !== 'copy-right'
           ),
       ]);
   }
