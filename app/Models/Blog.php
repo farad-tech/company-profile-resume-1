@@ -3,9 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 
 class Blog extends Model
@@ -31,12 +30,8 @@ class Blog extends Model
         'author',
     ];
 
-    protected function author(): Attribute
+    public function comments(): HasMany
     {
-        return Attribute::make(
-            set: function () {
-                return Auth::id();
-            },
-        );
+        return $this->hasMany(Comment::class);
     }
 }
