@@ -31,7 +31,9 @@ class CustomResource extends Resource
   protected static $options = [
     'about' => 'About us content',
     'contact' => 'Contact us content',
-    'footer-text' => 'Footer text'
+    'footer-text' => 'Footer text',
+    'newsletter' => 'Newsletter',
+    'footer-contact' => 'Footer contact ways',
   ];
 
   public static function form(Form $form): Form
@@ -148,6 +150,67 @@ class CustomResource extends Resource
           ->hidden(
             fn (Get $get): bool => $get('title') !== 'footer-text'
           ),
+
+        Section::make('newsletter')
+          ->statePath('content')
+          ->schema([
+            TextInput::make('text')
+              ->label('Title')
+              ->hint("Translatable!")
+              ->hintColor("info")
+          ])
+          ->hidden(
+            fn (Get $get): bool => $get('title') !== 'newsletter'
+          ),
+
+        Section::make('footer-contact')
+          ->statePath('content')
+          ->schema([
+            Textarea::make('Address')
+              ->label('Address')
+              ->hint("Translatable!")
+              ->hintColor("info")
+              ->required(),
+
+            TextInput::make('phone')
+              ->label('Phone')
+              ->hintColor("info")
+              ->required(),
+
+            TextInput::make('email')
+              ->label('Email')
+              ->hintColor("info")
+              ->email()
+              ->required(),
+
+            TextInput::make('twitter')
+              ->label('Twitter')
+              ->hintColor("info")
+              ->url()
+              ->required(),
+
+            TextInput::make('facebook')
+              ->label('Facebook')
+              ->hintColor("info")
+              ->url()
+              ->required(),
+
+            TextInput::make('linkedIn')
+              ->label('Linkedin')
+              ->hintColor("info")
+              ->url()
+              ->required(),
+
+            TextInput::make('instagram')
+              ->label('Instagram')
+              ->hintColor("info")
+              ->url()
+              ->required(),
+
+          ])
+          ->hidden(
+            fn (Get $get): bool => $get('title') !== 'footer-contact'
+          )
       ]);
   }
 
