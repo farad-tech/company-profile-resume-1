@@ -31,6 +31,7 @@ class CustomResource extends Resource
   protected static $options = [
     'about' => 'About us content',
     'contact' => 'Contact us content',
+    'footer-text' => 'Footer text'
   ];
 
   public static function form(Form $form): Form
@@ -75,7 +76,7 @@ class CustomResource extends Resource
               )
               ->hintColor('danger')
               ->disabled(function (string $operation) {
-                return ($operation == 'edit')? true : false;
+                return ($operation == 'edit') ? true : false;
               })
           ]),
 
@@ -88,24 +89,24 @@ class CustomResource extends Resource
               ->hintColor("info"),
 
             Textarea::make('sub-title')->rows(2)
-            ->hint("Translatable!")
-            ->hintColor("info"),
+              ->hint("Translatable!")
+              ->hintColor("info"),
 
             Textarea::make('text-1')->rows(3)
-            ->hint("Translatable!")
-            ->hintColor("info"),
+              ->hint("Translatable!")
+              ->hintColor("info"),
 
             TagsInput::make('options')
-            ->hint("Translatable!")
-            ->hintColor("info"),
+              ->hint("Translatable!")
+              ->hintColor("info"),
 
             Textarea::make('text-2')->rows(3)
-            ->hint("Translatable!")
-            ->hintColor("info"),
+              ->hint("Translatable!")
+              ->hintColor("info"),
 
             FileUpload::make('image')
-            ->hint("Translatable!")
-            ->hintColor("info"),
+              ->hint("Translatable!")
+              ->hintColor("info"),
 
           ])
           ->hidden(
@@ -119,7 +120,7 @@ class CustomResource extends Resource
               ->label('Title')
               ->hint("Translatable!")
               ->hintColor("info"),
-  
+
             Textarea::make('text')
               ->label('Text')
               ->hint("Translatable!")
@@ -132,6 +133,20 @@ class CustomResource extends Resource
           ])
           ->hidden(
             fn (Get $get): bool => $get('title') !== 'contact'
+          ),
+
+
+        Section::make('footer-text')
+          ->statePath('content')
+          ->schema([
+            Textarea::make('text')
+              ->label('Title')
+              ->hint("Translatable!")
+              ->hintColor("info")
+              ->rows(3),
+          ])
+          ->hidden(
+            fn (Get $get): bool => $get('title') !== 'footer-text'
           ),
       ]);
   }
