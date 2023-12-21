@@ -33,7 +33,11 @@ class CustomResource extends Resource
     'contact' => 'Contact us content',
     'footer-text' => 'Footer text',
     'newsletter' => 'Newsletter',
+    'newsletter-button' => 'Newsletter button',
+    'newsletter-placeholder' => 'Newsletter placeholder',
     'footer-contact' => 'Footer contact ways',
+    'quick-link-title' => 'Quick link title',
+    'popular-link-title' => 'Popular link title',
   ];
 
   public static function form(Form $form): Form
@@ -83,7 +87,7 @@ class CustomResource extends Resource
           ]),
 
         // about contenct
-        Section::make('about')
+        Section::make('about')->heading('About')
           ->statePath('content')
           ->schema([
             Textarea::make('title')->rows(2)
@@ -115,7 +119,7 @@ class CustomResource extends Resource
             fn (Get $get): bool => $get('title') !== 'about'
           ),
 
-        Section::make('contact')
+        Section::make('contact')->heading('Contact')
           ->statePath('content')
           ->schema([
             TextInput::make('title')
@@ -138,7 +142,7 @@ class CustomResource extends Resource
           ),
 
 
-        Section::make('footer-text')
+        Section::make('footer-text')->heading('Footer text')
           ->statePath('content')
           ->schema([
             Textarea::make('text')
@@ -151,7 +155,7 @@ class CustomResource extends Resource
             fn (Get $get): bool => $get('title') !== 'footer-text'
           ),
 
-        Section::make('newsletter')
+        Section::make('newsletter')->heading('Newsletter')
           ->statePath('content')
           ->schema([
             TextInput::make('text')
@@ -163,9 +167,10 @@ class CustomResource extends Resource
             fn (Get $get): bool => $get('title') !== 'newsletter'
           ),
 
-        Section::make('footer-contact')
+        Section::make('footer-contact')->heading('Footer contact ways')
           ->statePath('content')
           ->schema([
+
             Textarea::make('Address')
               ->label('Address')
               ->hint("Translatable!")
@@ -210,7 +215,43 @@ class CustomResource extends Resource
           ])
           ->hidden(
             fn (Get $get): bool => $get('title') !== 'footer-contact'
-          )
+          ),
+
+        Section::make('newsletter-button')->heading('Newsletter button title')
+          ->statePath('content')
+          ->schema([
+            TextInput::make('button-title')->label("Button Title")
+          ])
+          ->hidden(
+            fn (Get $get): bool => $get('title') !== 'newsletter-button'
+          ),
+
+        Section::make('newsletter-placeholder')->heading('Newsletter input placeholder')
+          ->statePath('content')
+          ->schema([
+            TextInput::make('input-placeholder')->label("Input placeholder")
+          ])
+          ->hidden(
+            fn (Get $get): bool => $get('title') !== 'newsletter-placeholder'
+          ),
+
+        Section::make('quick-link-title')->heading('Quick link title')
+          ->statePath('content')
+          ->schema([
+            TextInput::make('quick-link-title')->label("Quick link title")
+          ])
+          ->hidden(
+            fn (Get $get): bool => $get('title') !== 'quick-link-title'
+          ),
+
+        Section::make('popular-link-title')->heading('Popular link title')
+          ->statePath('content')
+          ->schema([
+            TextInput::make('popular-link-title')->label("Popular link title")
+          ])
+          ->hidden(
+            fn (Get $get): bool => $get('title') !== 'popular-link-title'
+          ),
       ]);
   }
 
