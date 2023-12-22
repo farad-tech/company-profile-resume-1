@@ -5,6 +5,8 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CustomResource\Pages;
 use App\Models\Custom;
 use Closure;
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
@@ -26,7 +28,7 @@ class CustomResource extends Resource
   use Translatable;
   protected static ?string $model = Custom::class;
 
-  protected static ?string $navigationIcon = 'heroicon-o-squares-2x2';
+  protected static ?string $navigationGroup = 'Setting';
 
   protected static $options = [
     'about' => 'About us content',
@@ -39,6 +41,7 @@ class CustomResource extends Resource
     'quick-link-title' => 'Quick link title',
     'popular-link-title' => 'Popular link title',
     'copy-right' => 'Copy right text',
+    'colors' => 'Colors'
   ];
 
   public static function form(Form $form): Form
@@ -222,8 +225,8 @@ class CustomResource extends Resource
           ->statePath('content')
           ->schema([
             TextInput::make('button-title')->label("Button Title")
-            ->hint('Translatable!')
-            ->hintColor('info'),
+              ->hint('Translatable!')
+              ->hintColor('info'),
           ])
           ->hidden(
             fn (Get $get): bool => $get('title') !== 'newsletter-button'
@@ -233,8 +236,8 @@ class CustomResource extends Resource
           ->statePath('content')
           ->schema([
             TextInput::make('input-placeholder')->label("Input placeholder")
-            ->hint('Translatable!')
-            ->hintColor('info'),
+              ->hint('Translatable!')
+              ->hintColor('info'),
           ])
           ->hidden(
             fn (Get $get): bool => $get('title') !== 'newsletter-placeholder'
@@ -244,8 +247,8 @@ class CustomResource extends Resource
           ->statePath('content')
           ->schema([
             TextInput::make('quick-link-title')->label("Quick link title")
-            ->hint('Translatable!')
-            ->hintColor('info'),
+              ->hint('Translatable!')
+              ->hintColor('info'),
           ])
           ->hidden(
             fn (Get $get): bool => $get('title') !== 'quick-link-title'
@@ -255,8 +258,8 @@ class CustomResource extends Resource
           ->statePath('content')
           ->schema([
             TextInput::make('popular-link-title')->label("Popular link title")
-            ->hint('Translatable!')
-            ->hintColor('info'),
+              ->hint('Translatable!')
+              ->hintColor('info'),
           ])
           ->hidden(
             fn (Get $get): bool => $get('title') !== 'popular-link-title'
@@ -266,11 +269,36 @@ class CustomResource extends Resource
           ->statePath('content')
           ->schema([
             TextInput::make('copy-right')->label("Copy right text")
-            ->hint('Translatable!')
-            ->hintColor('info'),
+              ->hint('Translatable!')
+              ->hintColor('info'),
           ])
           ->hidden(
             fn (Get $get): bool => $get('title') !== 'copy-right'
+          ),
+
+        Section::make('colors')->heading('Colors of website')
+          ->statePath('content')
+          ->columns([
+            'md' => 3,
+          ])
+          ->schema([
+            ColorPicker::make('primary')
+              ->label("Primary"),
+
+            ColorPicker::make('secondary')
+              ->label("Secondary"),
+
+            ColorPicker::make('text-1')
+              ->label("Text 1"),
+
+            ColorPicker::make('text-2')
+              ->label("Text 2"),
+
+            ColorPicker::make('text-3')
+              ->label("Text 3"),
+          ])
+          ->hidden(
+            fn (Get $get): bool => $get('title') !== 'colors'
           ),
       ]);
   }
