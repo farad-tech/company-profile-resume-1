@@ -35,7 +35,7 @@ class LanguageResource extends Resource
                         TextInput::make('symbol')
                             ->label('Symbol')
                             ->required()
-                            ->hint('e.g: en for English and zh for china')
+                            ->hint('e.g: en for English and zh for chinese')
                             ->hintColor('warning'),
 
                         TextInput::make('title')
