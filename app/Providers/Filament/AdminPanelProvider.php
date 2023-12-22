@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Models\Language;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -23,6 +24,13 @@ class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
+        $languages_collection = Language::select('symbol')->where('enable', true)->get()->toArray();
+        $languages = [];
+        for ($i=0; $i < count($languages_collection); $i++) {
+            $value = $languages_collection[$i];
+            array_push($languages, $value['symbol']);
+        }
+        
         return $panel
             ->default()
             ->id('admin')
@@ -57,7 +65,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugin(
                 SpatieLaravelTranslatablePlugin::make()
-                    ->defaultLocales(['en', 'es', 'zh']),
+                    ->defaultLocales($languages),
             );
     }
 }

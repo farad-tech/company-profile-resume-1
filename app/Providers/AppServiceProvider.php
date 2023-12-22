@@ -37,6 +37,9 @@ class AppServiceProvider extends ServiceProvider
                 NavigationGroup::make()
                     ->label('Projects')
                     ->icon('heroicon-o-briefcase'),
+                NavigationGroup::make()
+                    ->label('Setting')
+                    ->icon('heroicon-o-cog-6-tooth'),
             ]);
         });
 
