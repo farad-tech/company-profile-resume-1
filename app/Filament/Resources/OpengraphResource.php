@@ -11,10 +11,12 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\ViewField;
 use Filament\Forms\Form;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -26,7 +28,7 @@ class OpengraphResource extends Resource
 
     protected static ?string $navigationGroup = 'Setting';
 
-    protected static $pages = [
+    public static $pages = [
         'home' => 'Home',
         'about-us' => 'About us',
         'articles' => 'Blog',
@@ -42,6 +44,7 @@ class OpengraphResource extends Resource
         return $form
             ->schema([
                 Section::make()
+                    ->description('Hint: blog detail Open graph will generate automatically based on blog details')
                     ->schema([
                         Select::make('og_type')
                             ->label('Open graph Type')
@@ -50,9 +53,7 @@ class OpengraphResource extends Resource
                                 'business.business' => 'Business',
                                 'product.group' => 'Product group',
                                 'website' => 'Website',
-                            ])->required()->disabled(function (string $operation) {
-                                return ($operation == 'edit') ? true : false;
-                            }),
+                            ]),
 
                         Select::make('page')
                             ->label('Page')
@@ -115,7 +116,9 @@ class OpengraphResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make("page"),
+                TextColumn::make("og_type"),
+                TextColumn::make("og_title"),
             ])
             ->filters([
                 //
