@@ -28,7 +28,7 @@ class SchemaResource extends Resource
     use Translatable;
     protected static ?string $model = Schema::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Setting';
 
     public static $pages = [
         'home' => 'Home',
