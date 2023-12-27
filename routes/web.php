@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\public\HomeController;
 use App\Http\Controllers\XMLController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [])->name('about-us');
 Route::get('/services', [])->name('services');
 Route::get('/projects', [])->name('projects');
