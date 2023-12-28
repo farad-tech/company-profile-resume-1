@@ -51,5 +51,7 @@ class AppServiceProvider extends ServiceProvider
             'success' => Color::Green,
             'warning' => Color::Amber,
         ]);
+        
+        view()->share('key', 'value');
     }
 }
