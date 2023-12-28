@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\HeaderInfo;
 use Filament\Facades\Filament;
 use Filament\Navigation\NavigationGroup;
 use Filament\Support\Colors\Color;
@@ -52,6 +53,8 @@ class AppServiceProvider extends ServiceProvider
             'warning' => Color::Amber,
         ]);
         
-        view()->share('key', 'value');
+
+        $topbarInfos = HeaderInfo::all();
+        view()->share('topbarInfos', $topbarInfos);
     }
 }

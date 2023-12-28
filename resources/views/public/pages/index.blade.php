@@ -1,6 +1,6 @@
 @extends('public.layouts.joint.template')
 
-@section('main')
+{{-- @section('main')
 
     <!-- Carousel Start -->
     <div class="container-fluid p-0">
@@ -581,4 +581,4 @@
         </div>
     </div>
     <!-- Blog End -->
-@endsection
+@endsection --}}

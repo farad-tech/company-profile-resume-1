@@ -269,3 +269,10 @@
     background: var(--primary);
     transform: skew(40deg);
 }
+
+.topbar-icon {
+    height: 42px;
+    width: 42px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
