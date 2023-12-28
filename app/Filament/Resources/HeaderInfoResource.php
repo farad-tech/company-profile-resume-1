@@ -46,8 +46,7 @@ class HeaderInfoResource extends Resource
                         ->directory('icons')
                         ->required(),
                         
-                        TextInput::make('url')
-                        ->activeUrl()
+                        TextInput::make('url'),
                     ]),
             ]);
     }
