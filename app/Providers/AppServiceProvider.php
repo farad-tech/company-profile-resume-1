@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\HeaderInfo;
+use App\Models\HeaderLink;
 use Filament\Facades\Filament;
 use Filament\Navigation\NavigationGroup;
 use Filament\Support\Colors\Color;
@@ -54,7 +55,8 @@ class AppServiceProvider extends ServiceProvider
         ]);
         
 
-        $topbarInfos = HeaderInfo::all();
-        view()->share('topbarInfos', $topbarInfos);
+        view()->share('topbarInfos', HeaderInfo::all());
+
+        view()->share('headerLinks', HeaderLink::all());
     }
 }

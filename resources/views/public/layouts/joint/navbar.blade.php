@@ -10,8 +10,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
+                @foreach ($headerLinks as $link)
+                    <a href="{{$link->url}}" class="nav-item nav-link @if($link->url == url()->current()) active @endif" @if($link->blank) target="_blank" @endif>{{$link->title}}</a>
+                @endforeach
                 <a href="service.html" class="nav-item nav-link">Service</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
