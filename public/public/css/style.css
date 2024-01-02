@@ -271,8 +271,7 @@
 }
 
 .topbar-icon {
-    height: 42px;
-    width: 42px;
-    background-repeat: no-repeat;
-    background-size: contain;
+    max-height: 42px;
+    width: auto;
+    padding: 0.05rem 0.3rem;
 }

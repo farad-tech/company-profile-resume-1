@@ -4,10 +4,7 @@
         @foreach ($topbarInfos as $info)
             <div class="col-lg-4 text-center py-3">
                 <div class="d-inline-flex align-items-center">
-                    <span
-                        class="topbar-icon"
-                        style="background: url('/storage/{{ $info->icon }}');"
-                    ></span>
+                    <img class="topbar-icon" src="/storage/{{ $info->icon }}" />
                     <div class="text-start">
                         <p class="text-uppercase fw-bold">{{ $info->title }}</p>
                         <span>
