@@ -11,6 +11,7 @@ class Service extends Model
     use HasFactory, HasTranslations;
 
     public $translatable = [
+        'icon',
         'title',
         'text',
     ];

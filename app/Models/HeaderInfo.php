@@ -13,6 +13,8 @@ class HeaderInfo extends Model
     public $translatable = [
         'title',
         'value',
+        'icon',
+        'url',
     ];
 
     protected $fillable = [

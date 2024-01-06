@@ -11,7 +11,9 @@ class HeaderLink extends Model
     use HasFactory, HasTranslations;
 
     public $translatable = [
-        'title'
+        'title',
+        'url',
+        'blank',
     ];
 
     protected $fillable = [

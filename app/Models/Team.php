@@ -13,7 +13,13 @@ class Team extends Model
     public $translatable = [
         'name',
         'position',
+        'image',
         'alt',
+        'twitter',
+        'facebook',
+        'linkedin',
+        'instagram',
+        'youtube',
     ];
 
     protected $fillable = [

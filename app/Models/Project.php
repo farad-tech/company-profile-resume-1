@@ -12,7 +12,9 @@ class Project extends Model
 
     protected $translatable = [
         'title',
-        'address'
+        'address',
+        'images',
+        'category',
     ];
     
     protected $casts = [

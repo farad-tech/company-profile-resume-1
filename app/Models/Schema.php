@@ -11,7 +11,9 @@ class Schema extends Model
     use HasFactory, HasTranslations;
 
     protected $translatable = [
-        'schema'
+        'page',
+        'schema',
+        'enabled',
     ];
 
     protected $fillable = [

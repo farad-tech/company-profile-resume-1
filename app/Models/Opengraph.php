@@ -15,6 +15,9 @@ class Opengraph extends Model
         'og_site_name',
         'og_url',
         'og_description',
+        'og_type',
+        'og_image',
+        'page',
     ];
 
     protected $fillable = [

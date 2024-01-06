@@ -12,6 +12,8 @@ class FooterLink extends Model
 
     protected $translatable = [
         'title',
+        'url',
+        'group',
     ];
 
     protected $fillable = [

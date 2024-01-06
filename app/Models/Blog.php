@@ -13,8 +13,11 @@ class Blog extends Model
 
     public $translatable = [
         'title',
+        'image',
         'content',
+        'category',
         'keywords',
+        'author',
     ];
 
     protected $casts = [

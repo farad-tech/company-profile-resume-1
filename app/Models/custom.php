@@ -15,7 +15,8 @@ class custom extends Model
     ];
 
     public $translatable = [
-        'content'
+        'title',
+        'content', 
     ];
 
     protected $fillable = [

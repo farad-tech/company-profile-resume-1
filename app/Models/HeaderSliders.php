@@ -13,8 +13,12 @@ class HeaderSliders extends Model
     protected $table = 'header_sliders';
 
     protected $translatable = [
+        'icon',
         'title',
-        'CallToActionTitle'
+        'CallToActionTitle',
+        'CallToActionURL',
+        'image',
+        'imageAlt',
     ];
 
     protected $fillable = [

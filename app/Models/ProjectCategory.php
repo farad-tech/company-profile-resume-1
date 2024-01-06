@@ -12,6 +12,7 @@ class ProjectCategory extends Model
 
     public $translatable = [
         'title',
+        'image',
         'alt',
     ];
 
