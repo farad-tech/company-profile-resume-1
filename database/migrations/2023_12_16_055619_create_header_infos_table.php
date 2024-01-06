@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('header_infos', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('value');
-            $table->string('icon');
-            $table->string('url')->nullable();
+            $table->longText('title');
+            $table->longText('value');
+            $table->longText('icon');
+            $table->longText('url')->nullable();
             $table->timestamps();
         });
     }

@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('header_sliders', function (Blueprint $table) {
             $table->id();
-            $table->text('icon');
             $table->text('title');
             $table->text('CallToActionTitle');
             $table->text('CallToActionURL');

@@ -30,13 +30,9 @@ class HeaderInfoResource extends Resource
                 Fieldset::make('details')
                     ->schema([
                         TextInput::make("title")
-                        ->hint('Translatable')
-                        ->hintColor('info')
                         ->required(),
 
                         TextInput::make('value')
-                        ->hint('Translatable')
-                        ->hintColor('info')
                         ->required(),
 
                         FileUpload::make('icon')

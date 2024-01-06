@@ -26,19 +26,12 @@ class HeaderSlidersResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('icon')
-                    ->label('Slider icon')
-                    ->required(),
 
                 TextInput::make('title')
-                    ->hint('Translatable')
-                    ->hintColor('info')
                     ->label('Slider text')
                     ->required(),
 
                 TextInput::make('CallToActionTitle')
-                    ->hint('Translatable')
-                    ->hintColor('info')
                     ->label('Slider call to action title')
                     ->required(),
 
@@ -53,6 +46,9 @@ class HeaderSlidersResource extends Resource
                     ->downloadable()
                     ->imageEditor()
                     ->directory('slider')
+                    ->imageCropAspectRatio('16:9')
+                    ->imageResizeTargetWidth('1920')
+                    ->imageResizeTargetHeight('1080')
                     ->required(),
 
                 TextInput::make('imageAlt')
