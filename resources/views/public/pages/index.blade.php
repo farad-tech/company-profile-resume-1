@@ -1,13 +1,12 @@
 @extends('public.layouts.joint.template')
 
-{{-- @section('main')
-
+@section('main')
     <!-- Carousel Start -->
     <div class="container-fluid p-0">
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="img/carousel-1.jpg" alt="Image1">
+                    <img class="w-100" src="\public\img/carousel-1.jpg" alt="Image1">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <i class="fa fa-home fa-4x text-primary mb-4 d-none d-sm-block"></i>
@@ -17,7 +16,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="img/carousel-2.jpg" alt="Image2">
+                    <img class="w-100" src="\public\img/carousel-2.jpg" alt="Image2">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <i class="fa fa-tools fa-4x text-primary mb-4 d-none d-sm-block"></i>
@@ -40,7 +39,7 @@
     <!-- Carousel End -->
 
 
-    <!-- About Start -->
+    {{-- <!-- About Start -->
     <div class="container-fluid py-6 px-5">
         <div class="row g-5">
             <div class="col-lg-7">
@@ -65,11 +64,11 @@
                 </div>
                 <p class="mb-4">Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et,
                     tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos labore</p>
-                <img src="img/signature.jpg" alt="manager signature">
+                <img src="\public\img/signature.jpg" alt="manager signature">
             </div>
             <div class="col-lg-5 pb-5" style="min-height: 400px;">
                 <div class="position-relative bg-dark-radial h-100 ms-5">
-                    <img class="position-absolute w-100 h-100 mt-5 ms-n5" src="img/about.jpg" style="object-fit: cover;"
+                    <img class="position-absolute w-100 h-100 mt-5 ms-n5" src="\public\img/about.jpg" style="object-fit: cover;"
                         alt="We are the Leader in Construction Industry">
                 </div>
             </div>
@@ -88,7 +87,7 @@
         <div class="row g-5">
             <div class="col-lg-4 col-md-6">
                 <div class="service-item bg-white d-flex flex-column align-items-center text-center">
-                    <img class="img-fluid" src="img/service-1.jpg" alt="service-1">
+                    <img class="img-fluid" src="\public\img/service-1.jpg" alt="service-1">
                     <div class="service-icon bg-white">
                         <i class="fa fa-3x fa-building text-primary"></i>
                     </div>
@@ -102,7 +101,7 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
-                    <img class="img-fluid" src="img/service-2.jpg" alt="service-2">
+                    <img class="img-fluid" src="\public\img/service-2.jpg" alt="service-2">
                     <div class="service-icon bg-white">
                         <i class="fa fa-3x fa-home text-primary"></i>
                     </div>
@@ -116,7 +115,7 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
-                    <img class="img-fluid" src="img/service-3.jpg" alt="service-3">
+                    <img class="img-fluid" src="\public\img/service-3.jpg" alt="service-3">
                     <div class="service-icon bg-white">
                         <i class="fa fa-3x fa-drafting-compass text-primary"></i>
                     </div>
@@ -130,7 +129,7 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
-                    <img class="img-fluid" src="img/service-4.jpg" alt="service-4">
+                    <img class="img-fluid" src="\public\img/service-4.jpg" alt="service-4">
                     <div class="service-icon bg-white">
                         <i class="fa fa-3x fa-palette text-primary"></i>
                     </div>
@@ -144,7 +143,7 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
-                    <img class="img-fluid" src="img/service-5.jpg" alt="service-5">
+                    <img class="img-fluid" src="\public\img/service-5.jpg" alt="service-5">
                     <div class="service-icon bg-white">
                         <i class="fa fa-3x fa-tools text-primary"></i>
                     </div>
@@ -158,7 +157,7 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="service-item bg-white rounded d-flex flex-column align-items-center text-center">
-                    <img class="img-fluid" src="img/service-6.jpg" alt="service-6">
+                    <img class="img-fluid" src="\public\img/service-6.jpg" alt="service-6">
                     <div class="service-icon bg-white">
                         <i class="fa fa-3x fa-paint-brush text-primary"></i>
                     </div>
@@ -241,21 +240,21 @@
                 <div class="d-inline-block bg-dark-radial text-center pt-4 px-5 mb-5">
                     <ul class="list-inline mb-0" id="portfolio-flters">
                         <li class="btn btn-outline-primary bg-white p-2 active mx-2 mb-4" data-filter="*">
-                            <img src="img/portfolio-1.jpg" style="width: 150px; height: 100px;" alt="portfolio-1">
+                            <img src="\public\img/portfolio-1.jpg" style="width: 150px; height: 100px;" alt="portfolio-1">
                             <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center"
                                 style="background: rgba(4, 15, 40, .3);">
                                 <p class="text-white text-uppercase m-0">All</p>
                             </div>
                         </li>
                         <li class="btn btn-outline-primary bg-white p-2 mx-2 mb-4" data-filter=".first">
-                            <img src="img/portfolio-2.jpg" style="width: 150px; height: 100px;" alt="portfolio-2">
+                            <img src="\public\img/portfolio-2.jpg" style="width: 150px; height: 100px;" alt="portfolio-2">
                             <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center"
                                 style="background: rgba(4, 15, 40, .3);">
                                 <p class="text-white text-uppercase m-0">Construction</p>
                             </div>
                         </li>
                         <li class="btn btn-outline-primary bg-white p-2 mx-2 mb-4" data-filter=".second">
-                            <img src="img/portfolio-3.jpg" style="width: 150px; height: 100px;" alt="portfolio-3">
+                            <img src="\public\img/portfolio-3.jpg" style="width: 150px; height: 100px;" alt="portfolio-3">
                             <div class="position-absolute top-0 start-0 end-0 bottom-0 m-2 d-flex align-items-center justify-content-center"
                                 style="background: rgba(4, 15, 40, .3);">
                                 <p class="text-white text-uppercase m-0">Renovation</p>
@@ -268,7 +267,7 @@
         <div class="row g-5 portfolio-container">
             <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item first">
                 <div class="position-relative portfolio-box">
-                    <img class="img-fluid w-100" src="img/portfolio-1.jpg" alt="project-1">
+                    <img class="img-fluid w-100" src="\public\img/portfolio-1.jpg" alt="project-1">
                     <a class="portfolio-title shadow-sm" href="">
                         <p class="h4 text-uppercase">Project Name</p>
                         <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New
@@ -281,7 +280,7 @@
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item second">
                 <div class="position-relative portfolio-box">
-                    <img class="img-fluid w-100" src="img/portfolio-2.jpg" alt="project-2">
+                    <img class="img-fluid w-100" src="\public\img/portfolio-2.jpg" alt="project-2">
                     <a class="portfolio-title shadow-sm" href="">
                         <p class="h4 text-uppercase">Project Name</p>
                         <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New
@@ -294,7 +293,7 @@
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item first">
                 <div class="position-relative portfolio-box">
-                    <img class="img-fluid w-100" src="img/portfolio-3.jpg" alt="project-3">
+                    <img class="img-fluid w-100" src="\public\img/portfolio-3.jpg" alt="project-3">
                     <a class="portfolio-title shadow-sm" href="">
                         <p class="h4 text-uppercase">Project Name</p>
                         <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New
@@ -307,7 +306,7 @@
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item second">
                 <div class="position-relative portfolio-box">
-                    <img class="img-fluid w-100" src="img/portfolio-4.jpg" alt="project-4">
+                    <img class="img-fluid w-100" src="\public\img/portfolio-4.jpg" alt="project-4">
                     <a class="portfolio-title shadow-sm" href="">
                         <p class="h4 text-uppercase">Project Name</p>
                         <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New
@@ -320,7 +319,7 @@
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item first">
                 <div class="position-relative portfolio-box">
-                    <img class="img-fluid w-100" src="img/portfolio-5.jpg" alt="project-5">
+                    <img class="img-fluid w-100" src="\public\img/portfolio-5.jpg" alt="project-5">
                     <a class="portfolio-title shadow-sm" href="">
                         <p class="h4 text-uppercase">Project Name</p>
                         <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New
@@ -333,7 +332,7 @@
             </div>
             <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item second">
                 <div class="position-relative portfolio-box">
-                    <img class="img-fluid w-100" src="img/portfolio-6.jpg" alt="project-6">
+                    <img class="img-fluid w-100" src="\public\img/portfolio-6.jpg" alt="project-6">
                     <a class="portfolio-title shadow-sm" href="">
                         <p class="h4 text-uppercase">Project Name</p>
                         <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New
@@ -360,7 +359,7 @@
                 <div class="row g-0">
                     <div class="col-10" style="min-height: 300px;">
                         <div class="position-relative h-100">
-                            <img class="position-absolute w-100 h-100" src="img/team-1.jpg" style="object-fit: cover;"
+                            <img class="position-absolute w-100 h-100" src="\public\img/team-1.jpg" style="object-fit: cover;"
                                 alt="team-1">
                         </div>
                     </div>
@@ -385,7 +384,7 @@
                 <div class="row g-0">
                     <div class="col-10" style="min-height: 300px;">
                         <div class="position-relative h-100">
-                            <img class="position-absolute w-100 h-100" src="img/team-2.jpg" style="object-fit: cover;"
+                            <img class="position-absolute w-100 h-100" src="\public\img/team-2.jpg" style="object-fit: cover;"
                                 alt="team-2">
                         </div>
                     </div>
@@ -410,7 +409,7 @@
                 <div class="row g-0">
                     <div class="col-10" style="min-height: 300px;">
                         <div class="position-relative h-100">
-                            <img class="position-absolute w-100 h-100" src="img/team-3.jpg" style="object-fit: cover;"
+                            <img class="position-absolute w-100 h-100" src="\public\img/team-3.jpg" style="object-fit: cover;"
                                 alt="team-3">
                         </div>
                     </div>
@@ -435,7 +434,7 @@
                 <div class="row g-0">
                     <div class="col-10" style="min-height: 300px;">
                         <div class="position-relative h-100">
-                            <img class="position-absolute w-100 h-100" src="img/team-4.jpg" style="object-fit: cover;"
+                            <img class="position-absolute w-100 h-100" src="\public\img/team-4.jpg" style="object-fit: cover;"
                                 alt="team-4">
                         </div>
                     </div>
@@ -468,7 +467,7 @@
         </div>
         <div class="row gx-0 align-items-center">
             <div class="col-xl-4 col-lg-5 d-none d-lg-block">
-                <img class="img-fluid w-100 h-100" src="img/testimonial.jpg" alt="testimonial">
+                <img class="img-fluid w-100 h-100" src="\public\img/testimonial.jpg" alt="testimonial">
             </div>
             <div class="col-xl-8 col-lg-7 col-md-12">
                 <div class="testimonial bg-light">
@@ -476,7 +475,7 @@
                         <div class="row gx-4 align-items-center">
                             <div class="col-xl-4 col-lg-5 col-md-5">
                                 <img class="img-fluid w-100 h-100 bg-light p-lg-3 mb-4 mb-md-0"
-                                    src="img/testimonial-1.jpg" alt="testimonial-1">
+                                    src="\public\img/testimonial-1.jpg" alt="testimonial-1">
                             </div>
                             <div class="col-xl-8 col-lg-7 col-md-7">
                                 <p class="text-uppercase mb-0">Client Name</p>
@@ -491,7 +490,7 @@
                         <div class="row gx-4 align-items-center">
                             <div class="col-xl-4 col-lg-5 col-md-5">
                                 <img class="img-fluid w-100 h-100 bg-light p-lg-3 mb-4 mb-md-0"
-                                    src="img/testimonial-2.jpg" alt="testimonial-2">
+                                    src="\public\img/testimonial-2.jpg" alt="testimonial-2">
                             </div>
                             <div class="col-xl-8 col-lg-7 col-md-7">
                                 <p class="text-uppercase mb-0">Client Name</p>
@@ -520,11 +519,11 @@
         <div class="row g-5">
             <div class="col-lg-4 col-md-6">
                 <div class="bg-light">
-                    <img class="img-fluid" src="img/blog-1.jpg" alt="blog-1">
+                    <img class="img-fluid" src="\public\img/blog-1.jpg" alt="blog-1">
                     <div class="p-4">
                         <div class="d-flex justify-content-between mb-4">
                             <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="img/user.jpg" width="35" height="35"
+                                <img class="rounded-circle me-2" src="\public\img/user.jpg" width="35" height="35"
                                     alt="user-blog-1">
                                 <span>John Doe</span>
                             </div>
@@ -540,11 +539,11 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="bg-light">
-                    <img class="img-fluid" src="img/blog-2.jpg" alt="blog-2">
+                    <img class="img-fluid" src="\public\img/blog-2.jpg" alt="blog-2">
                     <div class="p-4">
                         <div class="d-flex justify-content-between mb-4">
                             <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="img/user.jpg" width="35" height="35"
+                                <img class="rounded-circle me-2" src="\public\img/user.jpg" width="35" height="35"
                                     alt="user-blog-2">
                                 <span>John Doe</span>
                             </div>
@@ -560,11 +559,11 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="bg-light">
-                    <img class="img-fluid" src="img/blog-3.jpg" alt="blog-3">
+                    <img class="img-fluid" src="\public\img/blog-3.jpg" alt="blog-3">
                     <div class="p-4">
                         <div class="d-flex justify-content-between mb-4">
                             <div class="d-flex align-items-center">
-                                <img class="rounded-circle me-2" src="img/user.jpg" width="35" height="35"
+                                <img class="rounded-circle me-2" src="\public\img/user.jpg" width="35" height="35"
                                     alt="user-blog-3">
                                 <span>John Doe</span>
                             </div>
@@ -580,5 +579,5 @@
             </div>
         </div>
     </div>
-    <!-- Blog End -->
-@endsection --}}
+    <!-- Blog End --> --}}
+@endsection
