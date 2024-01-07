@@ -39,44 +39,35 @@
     @endif
 
 
-    {{-- <!-- About Start -->
-    <div class="container-fluid py-6 px-5">
-        <div class="row g-5">
-            <div class="col-lg-7">
-                <h1 class="display-5 text-uppercase mb-4">Lorem ipsum dolor <b class="text-primary">sit amet</b>,
-                    consectetur adipiscing</h1>
-                <h2 class="text-uppercase mb-3 text-body">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum
-                    tempor sit diam amet diam et eos labore</h2>
-                <p>Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et, tempor voluptua
-                    sit consetetur sit. Aliquyam diam amet diam et eos sadipscing labore. Clita erat ipsum et lorem et
-                    sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor</p>
-                <div class="row gx-5 py-2">
-                    <div class="col-sm-6 mb-2">
-                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Perfect Planning</p>
-                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Professional Workers</p>
-                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>First Working Process</p>
+    @if ($about !== null)
+        <!-- About Start -->
+        <div class="container-fluid py-6 px-5">
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <h1 class="display-5 text-uppercase mb-4">{{ $about->content['title'] }}</h1>
+                    <h2 class="text-uppercase mb-3 text-body">{{ $about->content['sub-title'] }}</h2>
+                    <p>{{ $about->content['text-1'] }}</p>
+                    <div class="row gx-5 py-2">
+                        @foreach ($about->content['options'] as $option)
+                            <p class="fw-bold col-sm-6 mb-3">
+                                <i class="fa fa-check text-primary me-3"></i>{{ $option }}
+                            </p>
+                        @endforeach
                     </div>
-                    <div class="col-sm-6 mb-2">
-                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Perfect Planning</p>
-                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>Professional Workers</p>
-                        <p class="fw-bold mb-2"><i class="fa fa-check text-primary me-3"></i>First Working Process</p>
-                    </div>
+                    <p class="mb-4">{{ $about->content['text-2'] }}</p>
                 </div>
-                <p class="mb-4">Tempor erat elitr at rebum at at clita aliquyam consetetur. Diam dolor diam ipsum et,
-                    tempor voluptua sit consetetur sit. Aliquyam diam amet diam et eos labore</p>
-                <img src="\public\img/signature.jpg" alt="manager signature">
-            </div>
-            <div class="col-lg-5 pb-5" style="min-height: 400px;">
-                <div class="position-relative bg-dark-radial h-100 ms-5">
-                    <img class="position-absolute w-100 h-100 mt-5 ms-n5" src="\public\img/about.jpg" style="object-fit: cover;"
-                        alt="We are the Leader in Construction Industry">
+                <div class="col-lg-5 pb-5" style="min-height: 400px;">
+                    <div class="position-relative bg-dark-radial h-100 ms-5">
+                        <img class="position-absolute w-100 h-100 mt-5 ms-n5" src="/storage/{{$about->content['image']}}"
+                            style="object-fit: cover;" alt="We are the Leader in Construction Industry">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- About End -->
+        <!-- About End -->
+    @endif
 
-
+    {{--
     <!-- Services Start -->
     <div class="container-fluid bg-light py-6 px-5">
         <div class="text-center mx-auto mb-5" style="max-width: 600px;">

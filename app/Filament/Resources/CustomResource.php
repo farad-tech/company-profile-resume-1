@@ -94,29 +94,17 @@ class CustomResource extends Resource
         Section::make('about')->heading('About')
           ->statePath('content')
           ->schema([
-            Textarea::make('title')->rows(2)
-              ->hint("Translatable!")
-              ->hintColor("info"),
+            Textarea::make('title')->rows(2),
 
-            Textarea::make('sub-title')->rows(2)
-              ->hint("Translatable!")
-              ->hintColor("info"),
+            Textarea::make('sub-title')->rows(2),
 
-            Textarea::make('text-1')->rows(3)
-              ->hint("Translatable!")
-              ->hintColor("info"),
+            Textarea::make('text-1')->rows(3),
 
-            TagsInput::make('options')
-              ->hint("Translatable!")
-              ->hintColor("info"),
+            TagsInput::make('options'),
 
-            Textarea::make('text-2')->rows(3)
-              ->hint("Translatable!")
-              ->hintColor("info"),
+            Textarea::make('text-2')->rows(3),
 
-            FileUpload::make('image')
-              ->hint("Translatable!")
-              ->hintColor("info"),
+            FileUpload::make('image'),
 
           ])
           ->hidden(
