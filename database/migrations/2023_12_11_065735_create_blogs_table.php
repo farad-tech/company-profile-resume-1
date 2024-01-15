@@ -13,13 +13,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('blogs', function (Blueprint $table) {
-            $table->id();
+            $table->id()->startingValue(10000);
             $table->text('title');
             $table->text('image');
             $table->text('content');
             $table->text('category');
             $table->text('keywords');
-            $table->text('author');
             $table->timestamps();
         });
     }

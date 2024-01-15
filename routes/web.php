@@ -23,7 +23,7 @@ Route::get('/our-team', [])->name('our-team');
 Route::get('/contact-us', [])->name('contact-us');
 Route::get('/testimonials', [])->name('testimonials');
 Route::get('/blog', [])->name('blogs');
-Route::get('/blog/{slug}', [])->name('blog');
+Route::get('/blog/{id}/{slug}', [])->name('blog');
 Route::get('/blog/category/{slug}', [])->name('category');
 Route::get('/blog/search/{slug}', [])->name('blogSearch');
 

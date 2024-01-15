@@ -34,7 +34,7 @@ class BlogResource extends Resource
     $categories = [];
 
     foreach ($categories_model as $category) {
-      $categories[$category['id']] = $category['title']['en'];
+      $categories['"'.$category['id'].'"'] = $category['title']['en'];
     }
 
     return $form
@@ -61,12 +61,6 @@ class BlogResource extends Resource
               ->hint('Translatable')
               ->hintColor('info')
               ->required(),
-
-            TextInput::make('author')
-              ->disabled(true)
-              ->default(Auth::id())
-              ->required()
-              ->helperText('Your Id!'),
 
           ])->columnSpan([
             'sm' => 12,
