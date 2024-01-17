@@ -5,20 +5,33 @@
                 <h6 class="m-0 display-4 text-uppercase text-white"><i
                         class="bi bi-building text-primary me-2"></i>WEBUILD</h6>
             </a>
-            <p>Aliquyam sed elitr elitr erat sed diam ipsum eirmod eos lorem nonumy. Tempor sea ipsum diam sed clita
-                dolore eos dolores magna erat dolore sed stet justo et dolor.</p>
-            <p><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</p>
-            <p><i class="fa fa-phone-alt me-2"></i>+012 345 67890</p>
-            <p><i class="fa fa-envelope me-2"></i><a href="mailto:info@example.com">Send Email</a></p>
+            <p>{{ $footer_public->text }}</p>
+            <p><i class="fa fa-map-marker-alt me-2"></i>{{ $footer_public->address }}</p>
+            <p><i class="fa fa-phone-alt me-2"></i><a
+                    href="tel:{{ $footer_public->phone }}">{{ $footer_public->phone }}</a></p>
+            <p><i class="fa fa-envelope me-2"></i><a
+                    href="mailto:{{ $footer_public->email }}">{{ $footer_public->email }}</a></p>
             <div class="d-flex justify-content-start mt-4">
-                <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="#"><i
-                        class="fab fa-twitter"></i></a>
-                <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="#"><i
-                        class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="#"><i
+
+                @if ($footer_public->twitter !== null)
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2"
+                        href="{{ $footer_public->twitter }}"><i class="fab fa-twitter"></i></a>
+                @endif
+
+                @if ($footer_public->facebook !== null)
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2"
+                        href="{{ $footer_public->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                @endif
+
+                @if($footer_public->linkedin !== null)
+                <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="{{ $footer_public->linkedin }}"><i
                         class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-lg btn-primary btn-lg-square rounded-0" href="#"><i
+                @endif
+
+                @if($footer_public->instagram !== null)
+                <a class="btn btn-lg btn-primary btn-lg-square rounded-0" href="{{ $footer_public->instagram }}"><i
                         class="fab fa-instagram"></i></a>
+                @endif
             </div>
         </div>
         <div class="col-lg-6 ps-lg-5">

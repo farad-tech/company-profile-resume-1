@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\custom;
 use App\Models\HeaderInfo;
 use App\Models\HeaderLink;
 use Filament\Facades\Filament;
@@ -53,10 +54,35 @@ class AppServiceProvider extends ServiceProvider
             'success' => Color::Green,
             'warning' => Color::Amber,
         ]);
-        
+
+        $footerText = custom::where('title', 'footer-text')->first()->content;
+        $footerText = [
+            'text' => $footerText['text']
+        ];
+
+        $footerContactWays = custom::where('title', 'footer-contact')->first()->content;
+        $footerContact = [
+            "address"   => $footerContactWays['Address'],
+            "phone"     => $footerContactWays['phone'],
+            "email"     => $footerContactWays['email'],
+            "twitter"   => $footerContactWays['twitter'],
+            "facebook"  => $footerContactWays['facebook'],
+            "linkedin"  => $footerContactWays['linkedIn'],
+            "instagram" => $footerContactWays['instagram'],
+        ];
+
+
+
+
+
+        $footer = [];
+        $footer = array_merge($footer, $footerText);
+        $footer = array_merge($footer, $footerContact);
+
+        $footer = (object) $footer;
 
         view()->share('topbarInfos', HeaderInfo::all());
-
         view()->share('headerLinks', HeaderLink::all());
+        view()->share('footer_public', $footer);
     }
 }

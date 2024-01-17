@@ -193,7 +193,7 @@
     <!-- Team End -->
 
 
-    @if (count($blog) > 0)
+    @if ($blogs->count() > 0)
         <!-- Blog Start -->
         <div class="container-fluid py-6 px-5">
             <div class="text-center mx-auto mb-5" style="max-width: 600px;">

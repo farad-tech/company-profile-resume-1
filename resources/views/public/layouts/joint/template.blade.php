@@ -33,7 +33,7 @@
 
     @yield('main')
 
-    {{-- @include('public.layouts.joint.footer') --}}
+    @include('public.layouts.joint.footer')
 
     @include('public.layouts.joint.arrowUp')
 
