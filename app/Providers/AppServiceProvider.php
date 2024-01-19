@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\custom;
+use App\Models\FooterLink;
 use App\Models\HeaderInfo;
 use App\Models\HeaderLink;
 use Filament\Facades\Filament;
@@ -71,18 +72,34 @@ class AppServiceProvider extends ServiceProvider
             "instagram" => $footerContactWays['instagram'],
         ];
 
+        $quickLinkTitle = custom::where('title', 'quick-link-title')->first()->content['quick-link-title'];
+        $quickLinkTitle = [
+            'quickLinkTitle' => $quickLinkTitle
+        ];
 
+        $popularLinkTitle = custom::where('title', 'popular-link-title')->first()->content['popular-link-title'];
+        $popularLinkTitle = [
+            'popularLinkTitle' => $popularLinkTitle
+        ];
 
-
+        $copyRight = custom::where('title', 'copy-right')->first()->content['copy-right'];
+        $copyRight = [
+            'copyRight' => $copyRight
+        ];
 
         $footer = [];
         $footer = array_merge($footer, $footerText);
         $footer = array_merge($footer, $footerContact);
+        $footer = array_merge($footer, $quickLinkTitle);
+        $footer = array_merge($footer, $popularLinkTitle);
+        $footer = array_merge($footer, $copyRight);
 
         $footer = (object) $footer;
 
         view()->share('topbarInfos', HeaderInfo::all());
         view()->share('headerLinks', HeaderLink::all());
         view()->share('footer_public', $footer);
+        view()->share('footer_quick_links', FooterLink::where('group', 'quick-links')->get());
+        view()->share('footer_popular_links', FooterLink::where('group', 'popular-links')->get());
     }
 }

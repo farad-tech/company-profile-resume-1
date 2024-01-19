@@ -37,7 +37,6 @@ class FooterLinkResource extends Resource
                     TextInput::make('title')
                         ->required()
                         ->label('Title')
-                        ->hint('Translatable!')
                         ->hintColor('info'),
 
                     TextInput::make('url')

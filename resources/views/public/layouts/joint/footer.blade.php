@@ -37,30 +37,19 @@
         <div class="col-lg-6 ps-lg-5">
             <div class="row g-5">
                 <div class="col-sm-6">
-                    <p class="text-white text-uppercase mb-4">Quick Links</p>
+                    <p class="text-white text-uppercase mb-4">{{ $footer_public->quickLinkTitle }}</p>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Home</a>
-                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>About
-                            Us</a>
-                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Our
-                            Services</a>
-                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Meet The
-                            Team</a>
-                        <a class="text-white-50" href="#"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
+                        @foreach ($footer_quick_links as $link)
+                            <a class="text-white-50 mb-2" href="{{ $link->url }}"><i class="fa fa-angle-right me-2"></i>{{ $link->title }}</a>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <p class="text-white text-uppercase mb-4">Popular Links</p>
+                    <p class="text-white text-uppercase mb-4">{{ $footer_public->popularLinkTitle }}</p>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Home</a>
-                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>About
-                            Us</a>
-                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Our
-                            Services</a>
-                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Meet The
-                            Team</a>
-                        <a class="text-white-50" href="#"><i class="fa fa-angle-right me-2"></i>Contact
-                            Us</a>
+                        @foreach ($footer_popular_links as $link)
+                            <a class="text-white-50 mb-2" href="{{ $link->url }}"><i class="fa fa-angle-right me-2"></i>{{ $link->title }}</a>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-sm-12">
@@ -80,8 +69,8 @@
 <div class="container-fluid bg-dark bg-light-radial text-white border-top border-primary px-0">
     <div class="d-flex flex-column flex-md-row justify-content-between">
         <div class="py-4 px-5 text-center text-md-start">
-            <p class="mb-0">&copy; <a class="text-primary" href="#">Your Site Name</a>. All Rights
-                Reserved.
+            <p class="mb-0">
+                {{ $footer_public->copyRight }}
             </p>
         </div>
         <div class="py-4 px-5 bg-primary footer-shape position-relative text-center text-md-end">
