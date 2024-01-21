@@ -56,43 +56,60 @@ class AppServiceProvider extends ServiceProvider
             'warning' => Color::Amber,
         ]);
 
-        $footerText = custom::where('title', 'footer-text')->first()->content;
-        $footerText = [
-            'text' => $footerText['text']
-        ];
-
-        $footerContactWays = custom::where('title', 'footer-contact')->first()->content;
-        $footerContact = [
-            "address"   => $footerContactWays['Address'],
-            "phone"     => $footerContactWays['phone'],
-            "email"     => $footerContactWays['email'],
-            "twitter"   => $footerContactWays['twitter'],
-            "facebook"  => $footerContactWays['facebook'],
-            "linkedin"  => $footerContactWays['linkedIn'],
-            "instagram" => $footerContactWays['instagram'],
-        ];
-
-        $quickLinkTitle = custom::where('title', 'quick-link-title')->first()->content['quick-link-title'];
-        $quickLinkTitle = [
-            'quickLinkTitle' => $quickLinkTitle
-        ];
-
-        $popularLinkTitle = custom::where('title', 'popular-link-title')->first()->content['popular-link-title'];
-        $popularLinkTitle = [
-            'popularLinkTitle' => $popularLinkTitle
-        ];
-
-        $copyRight = custom::where('title', 'copy-right')->first()->content['copy-right'];
-        $copyRight = [
-            'copyRight' => $copyRight
-        ];
 
         $footer = [];
-        $footer = array_merge($footer, $footerText);
-        $footer = array_merge($footer, $footerContact);
-        $footer = array_merge($footer, $quickLinkTitle);
-        $footer = array_merge($footer, $popularLinkTitle);
-        $footer = array_merge($footer, $copyRight);
+
+        $footerText = custom::where('title', 'footer-text')->first()->content ?? false;
+        if ($footerText) {
+            $footerText = [
+                'text' => $footerText['text']
+            ];
+            $footer = array_merge($footer, $footerText);
+        }
+
+
+
+        $footerContactWays = custom::where('title', 'footer-contact')->first()->content ?? false;
+        if ($footerContactWays) {
+            $footerContact = [
+                "address"   => $footerContactWays['Address'],
+                "phone"     => $footerContactWays['phone'],
+                "email"     => $footerContactWays['email'],
+                "twitter"   => $footerContactWays['twitter'],
+                "facebook"  => $footerContactWays['facebook'],
+                "linkedin"  => $footerContactWays['linkedIn'],
+                "instagram" => $footerContactWays['instagram'],
+            ];
+            $footer = array_merge($footer, $footerContact);
+        }
+
+
+        $quickLinkTitle = custom::where('title', 'quick-link-title')->first()->content['quick-link-title'] ?? false;
+        if ($quickLinkTitle) {
+            $quickLinkTitle = [
+                'quickLinkTitle' => $quickLinkTitle
+            ];
+            $footer = array_merge($footer, $quickLinkTitle);
+        }
+
+
+        $popularLinkTitle = custom::where('title', 'popular-link-title')->first()->content['popular-link-title'] ?? false;
+        if ($popularLinkTitle) {
+            $popularLinkTitle = [
+                'popularLinkTitle' => $popularLinkTitle
+            ];
+            $footer = array_merge($footer, $popularLinkTitle);
+        }
+
+
+        $copyRight = custom::where('title', 'copy-right')->first()->content['copy-right'] ?? false;
+        if ($copyRight) {
+            $copyRight = [
+                'copyRight' => $copyRight
+            ];
+            $footer = array_merge($footer, $copyRight);
+        }
+
 
         $footer = (object) $footer;
 

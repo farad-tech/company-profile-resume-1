@@ -5,31 +5,31 @@
                 <h6 class="m-0 display-4 text-uppercase text-white"><i
                         class="bi bi-building text-primary me-2"></i>WEBUILD</h6>
             </a>
-            <p>{{ $footer_public->text }}</p>
-            <p><i class="fa fa-map-marker-alt me-2"></i>{{ $footer_public->address }}</p>
+            <p>{{ $footer_public->text ?? '' }}</p>
+            <p><i class="fa fa-map-marker-alt me-2"></i>{{ $footer_public->address ?? '' }}</p>
             <p><i class="fa fa-phone-alt me-2"></i><a
-                    href="tel:{{ $footer_public->phone }}">{{ $footer_public->phone }}</a></p>
+                    href="tel:{{ $footer_public->phone ?? '' }}">{{ $footer_public->phone ?? '' }}</a></p>
             <p><i class="fa fa-envelope me-2"></i><a
-                    href="mailto:{{ $footer_public->email }}">{{ $footer_public->email }}</a></p>
+                    href="mailto:{{ $footer_public->email ?? '' }}">{{ $footer_public->email ?? '' }}</a></p>
             <div class="d-flex justify-content-start mt-4">
 
-                @if ($footer_public->twitter !== null)
+                @if ($footer_public->twitter ?? null !== null)
                     <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2"
-                        href="{{ $footer_public->twitter }}"><i class="fab fa-twitter"></i></a>
+                        href="{{ $footer_public->twitter ?? '' }}"><i class="fab fa-twitter"></i></a>
                 @endif
 
-                @if ($footer_public->facebook !== null)
+                @if ($footer_public->facebook ?? null !== null)
                     <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2"
-                        href="{{ $footer_public->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                        href="{{ $footer_public->facebook ?? '' }}"><i class="fab fa-facebook-f"></i></a>
                 @endif
 
-                @if($footer_public->linkedin !== null)
-                <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="{{ $footer_public->linkedin }}"><i
+                @if($footer_public->linkedin ?? null !== null)
+                <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="{{ $footer_public->linkedin ?? '' }}"><i
                         class="fab fa-linkedin-in"></i></a>
                 @endif
 
-                @if($footer_public->instagram !== null)
-                <a class="btn btn-lg btn-primary btn-lg-square rounded-0" href="{{ $footer_public->instagram }}"><i
+                @if($footer_public->instagram ?? null !== null)
+                <a class="btn btn-lg btn-primary btn-lg-square rounded-0" href="{{ $footer_public->instagram ?? '' }}"><i
                         class="fab fa-instagram"></i></a>
                 @endif
             </div>
@@ -37,18 +37,18 @@
         <div class="col-lg-6 ps-lg-5">
             <div class="row g-5">
                 <div class="col-sm-6">
-                    <p class="text-white text-uppercase mb-4">{{ $footer_public->quickLinkTitle }}</p>
+                    <p class="text-white text-uppercase mb-4">{{ $footer_public->quickLinkTitle ?? '' }}</p>
                     <div class="d-flex flex-column justify-content-start">
                         @foreach ($footer_quick_links as $link)
-                            <a class="text-white-50 mb-2" href="{{ $link->url }}"><i class="fa fa-angle-right me-2"></i>{{ $link->title }}</a>
+                            <a class="text-white-50 mb-2" href="{{ $link->url ?? '' }}"><i class="fa fa-angle-right me-2"></i>{{ $link->title ?? '' }}</a>
                         @endforeach
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <p class="text-white text-uppercase mb-4">{{ $footer_public->popularLinkTitle }}</p>
+                    <p class="text-white text-uppercase mb-4">{{ $footer_public->popularLinkTitle ?? '' }}</p>
                     <div class="d-flex flex-column justify-content-start">
                         @foreach ($footer_popular_links as $link)
-                            <a class="text-white-50 mb-2" href="{{ $link->url }}"><i class="fa fa-angle-right me-2"></i>{{ $link->title }}</a>
+                            <a class="text-white-50 mb-2" href="{{ $link->url ?? '' }}"><i class="fa fa-angle-right me-2"></i>{{ $link->title ?? '' }}</a>
                         @endforeach
                     </div>
                 </div>
@@ -70,7 +70,7 @@
     <div class="d-flex flex-column flex-md-row justify-content-between">
         <div class="py-4 px-5 text-center text-md-start">
             <p class="mb-0">
-                {{ $footer_public->copyRight }}
+                {{ $footer_public->copyRight ?? '' }}
             </p>
         </div>
         <div class="py-4 px-5 bg-primary footer-shape position-relative text-center text-md-end">

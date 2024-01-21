@@ -24,6 +24,13 @@ class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
+
+        // return $panel
+        // ->default()
+        // ->id('admin')
+        // ->path('admin')
+        // ->login();
+
         $languages_collection = Language::select('symbol')->where('enable', true)->get()->toArray();
         $languages = [];
         for ($i=0; $i < count($languages_collection); $i++) {
